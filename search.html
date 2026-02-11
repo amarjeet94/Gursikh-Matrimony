@@ -63,12 +63,11 @@
         <p class="lead text-muted">Filter by age, location, education, caste & more</p>
       </div>
 
-      <!-- Filters -->
+      <!-- Filters (same as before) -->
       <div class="col-lg-3">
         <div class="filter-section p-4 sticky-top" style="top: 100px;">
           <h5 class="fw-bold mb-4 text-orange"><i class="fas fa-filter me-2"></i>Filters</h5>
           
-          <!-- Age Range -->
           <div class="mb-4">
             <label class="form-label fw-semibold small">Age Range</label>
             <select class="form-select form-select-sm" id="ageFilter">
@@ -80,7 +79,6 @@
             </select>
           </div>
 
-          <!-- Gender -->
           <div class="mb-4">
             <label class="form-label fw-semibold small">Gender</label>
             <select class="form-select form-select-sm" id="genderFilter">
@@ -90,7 +88,6 @@
             </select>
           </div>
 
-          <!-- City -->
           <div class="mb-4">
             <label class="form-label fw-semibold small">City</label>
             <select class="form-select form-select-sm" id="cityFilter">
@@ -103,7 +100,6 @@
             </select>
           </div>
 
-          <!-- Caste -->
           <div class="mb-4">
             <label class="form-label fw-semibold small">Caste</label>
             <select class="form-select form-select-sm" id="casteFilter">
@@ -115,7 +111,6 @@
             </select>
           </div>
 
-          <!-- Education -->
           <div class="mb-4">
             <label class="form-label fw-semibold small">Education</label>
             <select class="form-select form-select-sm" id="educationFilter">
@@ -126,13 +121,11 @@
             </select>
           </div>
 
-          <!-- Search Bar -->
           <div class="mb-4">
             <label class="form-label fw-semibold small">Search Name</label>
             <input type="text" class="form-control form-control-sm" id="nameSearch" placeholder="Type name...">
           </div>
 
-          <!-- Clear Filters -->
           <button class="btn btn-outline-orange w-100 py-2" onclick="clearFilters()">
             <i class="fas fa-times me-1"></i> Clear All
           </button>
@@ -159,29 +152,28 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // Static Sikh Profiles Data (your exact fields)
+    // ✅ AUTHENTIC SIKH PROFILES - All Singh/Kaur names + Sikh-appropriate images
     const profiles = [
-      { id: 1, name: "Harpreet Kaur", age: 27, gender: "Female", city: "Delhi", state: "Delhi", caste: "Khatri", height: "5'4\"", education: "Master's", occupation: "Teacher", income: "₹5L-10L", about: "Pious family, seeking religious partner.", photo: "https://randomuser.me/api/portraits/women/32.jpg" },
-      { id: 2, name: "Gurpreet Singh", age: 29, gender: "Male", city: "Amritsar", state: "Punjab", caste: "Jat", height: "5'10\"", education: "B.Tech", occupation: "Engineer", income: "₹10L-20L", about: "Amritdhari, simple living.", photo: "https://randomuser.me/api/portraits/men/45.jpg" },
-      { id: 3, name: "Jaswinder Kaur", age: 25, gender: "Female", city: "Chandigarh", state: "Punjab", caste: "Ramgarhia", height: "5'3\"", education: "Bachelor's", occupation: "Nurse", income: "₹5L-10L", about: "Seva-oriented family.", photo: "https://randomuser.me/api/portraits/women/68.jpg" },
-      { id: 4, name: "Manpreet Singh", age: 32, gender: "Male", city: "Delhi", state: "Delhi", caste: "Arora", height: "5'8\"", education: "MBA", occupation: "Manager", income: "₹20L+", about: "Business family background.", photo: "https://randomuser.me/api/portraits/men/23.jpg" },
-      { id: 5, name: "Simran Kaur", age: 24, gender: "Female", city: "Ludhiana", state: "Punjab", caste: "Jat", height: "5'5\"", education: "B.Pharm", occupation: "Pharmacist", income: "₹5L-10L", about: "Looking for compatible match.", photo: "https://randomuser.me/api/portraits/women/44.jpg" },
-      { id: 6, name: "Amarjit Singh", age: 31, gender: "Male", city: "Jalandhar", state: "Punjab", caste: "Khatri", height: "5'9\"", education: "B.Tech", occupation: "Software Dev", income: "₹10L-20L", about: "IT professional, Gurmukhi reader.", photo: "https://randomuser.me/api/portraits/men/67.jpg" },
-      { id: 7, name: "Navjot Kaur", age: 26, gender: "Female", city: "Amritsar", state: "Punjab", caste: "Ramgarhia", height: "5'2\"", education: "Bachelor's", occupation: "Banker", income: "₹5L-10L", about: "Simple and religious family.", photo: "https://randomuser.me/api/portraits/women/19.jpg" },
-      { id: 8, name: "Ranjit Singh", age: 28, gender: "Male", city: "Delhi", state: "Delhi", caste: "Jat", height: "6'0\"", education: "Master's", occupation: "Doctor", income: "₹20L+", about: "Medical professional.", photo: "https://randomuser.me/api/portraits/men/12.jpg" },
-      { id: 9, name: "Kiran Kaur", age: 23, gender: "Female", city: "Chandigarh", state: "Punjab", caste: "Arora", height: "5'6\"", education: "B.Com", occupation: "Accountant", income: "₹0-5L", about: "Young professional family.", photo: "https://randomuser.me/api/portraits/women/55.jpg" },
-      { id: 10, name: "Baljit Singh", age: 34, gender: "Male", city: "Ludhiana", state: "Punjab", caste: "Ramgarhia", height: "5'7\"", education: "Diploma", occupation: "Business", income: "₹10L-20L", about: "Entrepreneur, family man.", photo: "https://randomuser.me/api/portraits/men/78.jpg" },
-      { id: 11, name: "Pooja Kaur", age: 29, gender: "Female", city: "Delhi", state: "Delhi", caste: "Khatri", height: "5'4\"", education: "MCA", occupation: "IT Analyst", income: "₹10L-20L", about: "Tech-savvy, religious.", photo: "https://randomuser.me/api/portraits/women/73.jpg" },
-      { id: 12, name: "Harjinder Singh", age: 30, gender: "Male", city: "Jalandhar", state: "Punjab", caste: "Jat", height: "5'11\"", education: "B.Tech", occupation: "Civil Engineer", income: "₹10L-20L", about: "Construction professional.", photo: "https://randomuser.me/api/portraits/men/34.jpg" }
+      { id: 1, name: "Harpreet Kaur", age: 27, gender: "Female", city: "Delhi", state: "Delhi", caste: "Khatri", height: "5'4\"", education: "Master's", occupation: "Teacher", income: "₹5L-10L", about: "Amritdhari family, seeking religious partner.", photo: "https://images.unsplash.com/photo-1612480141782-2e3e91603523?w=400&h=400&fit=crop&crop=face" },
+      { id: 2, name: "Gurpreet Singh", age: 29, gender: "Male", city: "Amritsar", state: "Punjab", caste: "Jat", height: "5'10\"", education: "B.Tech", occupation: "Engineer", income: "₹10L-20L", about: "Keshdhari, Gurbani lover, simple living.", photo: "https://images.unsplash.com/photo-1577391988822-1a25191e8387?w=400&h=400&fit=crop&crop=face" },
+      { id: 3, name: "Jaswinder Kaur", age: 25, gender: "Female", city: "Chandigarh", state: "Punjab", caste: "Ramgarhia", height: "5'3\"", education: "Bachelor's", occupation: "Nurse", income: "₹5L-10L", about: "Seva-oriented family, Gurdwara regular.", photo: "https://images.unsplash.com/photo-1666426521605-043ce855f96b?w=400&h=400&fit=crop&crop=face" },
+      { id: 4, name: "Manpreet Singh", age: 32, gender: "Male", city: "Delhi", state: "Delhi", caste: "Arora", height: "5'8\"", education: "MBA", occupation: "Manager", income: "₹20L+", about: "Business family, Amritdhari parents.", photo: "https://images.unsplash.com/photo-1629314892775-1a8db9253ca0?w=400&h=400&fit=crop&crop=face" },
+      { id: 5, name: "Simran Kaur", age: 24, gender: "Female", city: "Ludhiana", state: "Punjab", caste: "Jat", height: "5'5\"", education: "B.Pharm", occupation: "Pharmacist", income: "₹5L-10L", about: "Punjabi culture lover, religious family.", photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face" },
+      { id: 6, name: "Amarjit Singh", age: 31, gender: "Male", city: "Jalandhar", state: "Punjab", caste: "Khatri", height: "5'9\"", education: "B.Tech", occupation: "Software Dev", income: "₹10L-20L", about: "IT professional, Nitnem daily.", photo: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop&crop=face" },
+      { id: 7, name: "Navjot Kaur", age: 26, gender: "Female", city: "Amritsar", state: "Punjab", caste: "Ramgarhia", height: "5'2\"", education: "Bachelor's", occupation: "Banker", income: "₹5L-10L", about: "Simple living, Gurbani recitation.", photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face" },
+      { id: 8, name: "Ranjit Singh", age: 28, gender: "Male", city: "Delhi", state: "Delhi", caste: "Jat", height: "6'0\"", education: "MBBS", occupation: "Doctor", income: "₹20L+", about: "Medical professional, seva passion.", photo: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face" },
+      { id: 9, name: "Kiran Kaur", age: 23, gender: "Female", city: "Chandigarh", state: "Punjab", caste: "Arora", height: "5'6\"", education: "B.Com", occupation: "Accountant", income: "₹0-5L", about: "Young professional, Sikh values.", photo: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face" },
+      { id: 10, name: "Baljit Singh", age: 34, gender: "Male", city: "Ludhiana", state: "Punjab", caste: "Ramgarhia", height: "5'7\"", education: "Diploma", occupation: "Business", income: "₹10L-20L", about: "Entrepreneur, family-oriented.", photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face" },
+      { id: 11, name: "Pooja Kaur", age: 29, gender: "Female", city: "Delhi", state: "Delhi", caste: "Khatri", height: "5'4\"", education: "MCA", occupation: "IT Analyst", income: "₹10L-20L", about: "Tech-savvy, Gurdwara volunteer.", photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face" },
+      { id: 12, name: "Harjinder Singh", age: 30, gender: "Male", city: "Jalandhar", state: "Punjab", caste: "Jat", height: "5'11\"", education: "B.Tech", occupation: "Civil Engineer", income: "₹10L-20L", about: "Construction professional, Amritdhari.", photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" }
     ];
 
     let filteredProfiles = [...profiles];
 
-    // Filter function
+    // Filter function (same logic)
     function applyFilters() {
       const ageFilter = document.getElementById('ageFilter').value;
       const genderFilter = document.getElementById('genderFilter').value;
@@ -191,10 +183,8 @@
       const nameSearch = document.getElementById('nameSearch').value.toLowerCase();
 
       filteredProfiles = profiles.filter(profile => {
-        // Name search
         if (nameSearch && !profile.name.toLowerCase().includes(nameSearch)) return false;
         
-        // Age filter
         if (ageFilter) {
           const age = parseInt(profile.age);
           if (ageFilter === '20-25' && (age < 20 || age > 25)) return false;
@@ -203,16 +193,9 @@
           if (ageFilter === '35+' && age < 35) return false;
         }
 
-        // Gender
         if (genderFilter && profile.gender !== genderFilter) return false;
-
-        // City
         if (cityFilter && profile.city !== cityFilter) return false;
-
-        // Caste
         if (casteFilter && profile.caste !== casteFilter) return false;
-
-        // Education
         if (educationFilter && profile.education !== educationFilter) return false;
 
         return true;
@@ -222,7 +205,7 @@
       document.getElementById('resultsCount').textContent = filteredProfiles.length;
     }
 
-    // Render profiles
+    // Render profiles (same)
     function renderProfiles() {
       const container = document.getElementById('profilesContainer');
       container.innerHTML = '';
@@ -232,12 +215,12 @@
           <div class="col-md-6 col-lg-4 col-xl-3">
             <div class="card profile-card h-100">
               <div class="card-body p-4 text-center">
-                <img src="${profile.photo}" class="profile-img mx-auto mb-3" alt="${profile.name}">
+                <img src="${profile.photo}" class="profile-img mx-auto mb-3" alt="${profile.name}" onerror="this.src='https://via.placeholder.com/80?text=Sikh'">
                 <h6 class="fw-bold mb-2">${profile.name}</h6>
                 <p class="text-muted small mb-1">${profile.age} • ${profile.city}</p>
                 <p class="text-muted small mb-2">${profile.education} • ${profile.occupation}</p>
                 <p class="small text-dark mb-3">${profile.about}</p>
-                <div class="d-flex gap-2 justify-content-center">
+                <div class="d-flex gap-2 justify-content-center flex-wrap">
                   <a href="profile-detail.html?id=${profile.id}" class="btn btn-outline-primary btn-sm">
                     <i class="fas fa-eye me-1"></i> View Profile
                   </a>
@@ -253,7 +236,7 @@
       });
     }
 
-    // Sort profiles
+    // Event listeners (same as before)
     document.getElementById('sortFilter').addEventListener('change', function() {
       const sortBy = this.value;
       filteredProfiles.sort((a, b) => {
@@ -264,13 +247,11 @@
       renderProfiles();
     });
 
-    // Event listeners for filters
     ['ageFilter', 'genderFilter', 'cityFilter', 'casteFilter', 'educationFilter'].forEach(id => {
       document.getElementById(id).addEventListener('change', applyFilters);
     });
     document.getElementById('nameSearch').addEventListener('input', applyFilters);
 
-    // Clear filters
     function clearFilters() {
       document.getElementById('ageFilter').value = '';
       document.getElementById('genderFilter').value = '';
@@ -282,9 +263,8 @@
       applyFilters();
     }
 
-    // Demo contact request
     function requestContact(profileId) {
-      alert(`Contact request sent to profile #${profileId}! (Pending Admin Approval)`);
+      alert(`Contact request sent to ${profiles.find(p => p.id === profileId).name}! (Pending Admin Approval)`);
     }
 
     // Initial load

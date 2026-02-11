@@ -1,0 +1,434 @@
+Here’s a **complete, static HTML landing‑page template** using **Bootstrap 5**, with an **orange/white Sikh‑themed layout**, and sections as you requested.  
+It’s fully responsive and ready to drop into an `index.html` file; backend logic (APIs, dashboard, approvals, etc.) you implement later.
+
+***
+
+### ✅ Static HTML Template (Bootstrap 5, Orange/White Sikh Theme)
+
+Copy‑paste the code below into `index.html` and view in browser:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device‑width, initial‑scale=1" />
+  <title>Sikh Matrimony – For Local Community Use</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles -->
+  <style>
+    :root {
+      --sikh-orange: #FF9800;
+      --sikh-white: #FFFFFF;
+      --light-orange: #FFE0B2;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F8F9FA;
+      color: #333;
+    }
+
+    .bg-sikh-orange { background-color: var(--sikh-orange); }
+    .bg-sikh-white { background-color: var(--sikh-white); }
+    .text-orange { color: var(--sikh-orange); }
+
+    .navbar-brand {
+      color: var(--sikh-orange) !important;
+      font-weight: 700;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--sikh-orange) 0%, #ea5906 100%);
+      color: white;
+    }
+
+    .stat-card {
+      border-radius: 1rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(255,152,0,0.3);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--sikh-orange);
+    }
+
+    .profile-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--sikh-orange);
+    }
+
+    .step-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: var(--sikh-orange);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin: 0 auto;
+    }
+
+    .cta-section {
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    .cta-button {
+      background-color: var(--sikh-orange);
+      border: none;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-weight: 60 Nearby;
+      transition: 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e08700;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: var(--sikh-orange);
+      color: white;
+    }
+
+    footer .social-link {
+      font-size: 1.3rem;
+      color: var(--sikh-white);
+      margin: 0 0.5rem;
+      transition: 0.3s ease;
+    }
+
+    footer .social-link:hover {
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fas fa-gem me-1"></i> SIKH <span class="text-orange">MATRIMONY</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#stats">Stats</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#profiles">Profiles</a></li>
+          <li class="nav-item"><a class="nav-link" href="#steps">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cta">Join Now</a></li>
+          <li class="nav-item ms-3">
+            <a href="login.html" class="btn btn-outline-success px-4 py-2">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-gradient py-5 py-md-0" style="min-height: 80vh;">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-md-7 text-white my-5">
+          <h1 class="display-4 fw-bold">
+            Sikh Matrimony for Local Community
+          </h1>
+          <p class="lead">
+            Safe, respectful, and community‑driven platform for Sikh families to connect<br>
+            in a pure, non‑dating environment.
+          </p>
+          <div class="mt-4">
+            <a href="register.html" class="btn btn-light text-orange fw-semibold fs-5 px-5 py-3 me-3">Register Free</a>
+            <a href="#steps" class="btn btn-outline-light fw-semibold fs-5 px-5 py-3">Learn How</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section id="stats" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center fw-bold fs-1 text-uppercase mb-5">
+        Platform <span class="text-orange">Statistics</span>
+      </h2>
+
+      <div class="row g-4">
+        <div class="col-md-3 col-6 text-center">
+          <div class="stat-card bg-white p-4">
+            <h1 class="text-orange fw-bold mb-0">25K+</h1>
+            <p class="mb-0">Registered Users</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-6 text-center">
+          <div class="stat-card bg-white p-4">
+            <h1 class="text-orange fw-bold mb-0">6K+</h1>
+            <p class="mb-0">Active Profiles</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-6 text-center">
+          <div class="stat-card bg-white p-4">
+            <h1 class="text-orange fw-bold mb-0">1.8K+</h1>
+            <p class="mb-0">Successful Matches</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-6 text-center">
+          <div class="stat-card bg-white p-4">
+            <h1 class="text-orange fw-bold mb-0">6.5M</h1>
+            <p class="mb-0">Profile Views</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-5 bg-sikh-white">
+    <div class="container">
+      <h2 class="text-center fw-bold fs-1 text-uppercase mb-5">
+        Why <span class="text-orange">Choose Us</span>
+      </h2>
+
+      <div class="row g-4">
+        <div class="col-md-4 text-center">
+          <div class="p-4 feature-hover">
+            <i class="fas fa-lock feature-icon mb-2"></i>
+            <h5 class="fw-bold">Secure & Private</h5>
+            <p>
+              All profiles are verified and contact data remains hidden until admin approval.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="p-4 feature-hover">
+            <i class="fas fa-user-friends feature-icon mb-2"></i>
+            <h5 class="fw-bold">Local Networks</h5>
+            <p>
+              Focus on nearby cities and gurdwara communities for more compatible matches.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="p-4 feature-hover">
+            <i class="fas fa-globe feature-icon mb-2"></i>
+            <h5 class="fw-bold">Global Reach</h5>
+            <p>
+              Gurmukhi letters, bio search, and filters for worldwide Sikhs in one platform.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="p-4 feature-hover">
+            <i class="fas fa-gavel feature-icon mb-2"></i>
+            <h5 class="fw-bold">Admin Oversight</h5>
+            <p>
+              Every contact request is reviewed personally to block misuse and ensure safety.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="p-4 feature-hover">
+            <i class="fas fa-layer-group feature-icon mb-2"></i>
+            <h5 class="fw-bold">Caste & Subcaste Filters</h5>
+            <p>
+              Optional caste and sub‑caste matching, while still allowing open filters for others.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="p-4 feature-hover">
+            <i class="fas fa-shield-alt feature-icon mb-2"></i>
+            <h5 class="fw-bold">Respect Driven</h5>
+            <p>
+              Strict code of conduct and zero tolerance for harassment or insensitive behavior.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Profiles -->
+  <section id="profiles" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center fw-bold fs-1 text-uppercase mb-5">
+        Featured <span class="text-orange">Profiles</span>
+      </h2>
+
+      <div class="row g-4">
+        <!-- Example profiles (repeat / replace in real app) -->
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="position-relative text-center p-3">
+              <img src="https://randomuser.me/api/portraits/women/42.jpg" class="profile-img mx-auto" alt="Profile" />
+              <div class="mt-2">
+                <h6 class="mb-0 fw-bold">Harman Kaur, 28</h6>
+                <p class="mb-1 text-muted small">Delhi • MA • Teacher</p>
+                <p class="small text-muted" title="About Me (truncated)">
+                  Seeking a pious partner who values family, education, and community service.
+                </p>
+                <a href="profile-detail.html" class="btn btn-outline-primary btn-sm mt-1">View Profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="position-relative text-center p-3">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" class="profile-img mx-auto" alt="Profile" />
+              <div class="mt-2">
+                <h6 class="mb-0 fw-bold">Sarabjit Singh, 31</h6>
+                <p class="mb-1 text-muted small">Chandigarh • B.Tech • Software Engineer</p>
+                <p class="small text-muted">
+                  Prefer simple‑minded, religious family; interested in starting soon.
+                </p>
+                <a href="profile-detail.html" class="btn btn-outline-primary btn-sm mt-1">View Profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow-sm border-0 h-100">
+            <div class="position-relative text-center p-3">
+              <img src="https://randomuser.me/api/portraits/women/61.jpg" class="profile-img mx-auto" alt="Profile" />
+              <div class="mt-2">
+                <h6 class="mb-0 fw-bold">Navneet Kaur, 26</h6>
+                <p class="mb-1 text-muted small">Amritsar • B.Pharm • Pharmacist</p>
+                <p class="small text-muted">
+                  Open to religious / equal thinking partner with similar career mindset.
+                </p>
+                <a href="profile-detail.html" class="btn btn-outline-primary btn-sm mt-1">View Profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="search.html" class="btn btn-orange text-white fw-semibold fs-5 px-4 py-3">
+          View All Profiles
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works – 4‑step process -->
+  <section id="steps" class="py-5 bg-sikh-white">
+    <div class="container">
+      <h2 class="text-center fw-bold fs-1 text-uppercase mb-5">
+        How <span class="text-orange">It Works</span>
+      </h2>
+
+      <div class="row g-4 text-center">
+        <div class="col-md-3 mb-3">
+          <div class="step-icon mb-3">1</div>
+          <h5 class="fw-bold">Register & Verify</h5>
+          <p class="small text-muted">
+            Create account, submit your Kundali, and basic details for quick admin review.
+          </p>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <div class="step-icon mb-3">2</div>
+          <h5 class="fw-bold">Set Preferences</h5>
+          <p class="small text-muted">
+            Decide what info you want shown (education, locale, background) and what stays hidden.
+          </p>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <div class="step-icon mb-3">3</div>
+          <h5 class="fw-bold">Search & Connect</h5>
+          <p class="small text-muted">
+            Browsing, sending contact requests, and shortlisting favorite profiles.
+          </p>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <div class="step-icon mb-3">4</div>
+          <h5 class="fw-bold">Get Approved</h5>
+          <p class="small text-muted">
+            After admin approval, access full details (phone, email) and proceed for marriage talk.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call‑to‑Action Section -->
+  <section id="cta" class="py-5 cta-section text-center">
+    <div class="container">
+      <h2 class="display-5 fw-bold mb-3">Ready to Begin?</h2>
+      <p class="lead mb-5">
+        Join thousands of Sikh families who found their perfect match on a trusted, non‑dating platform.
+      </p>
+
+      <a href="register.html" class="cta-button fs-5 shadow">Create Your Free Profile Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6 text-center text-md-start">
+          <h5 class="fw-bold fs-3">
+            Sikh <span class="text-white">Matrimony</span>
+          </h5>
+          <p class="mt-3 small">
+            A safe, Sikh‑community‑driven matrimony platform without harassment or dating culture.
+          </p>
+        </div>
+
+        <div class="col-md-3 text-center text-md-start">
+          <h6 class="fw-bold">Contact Us</h6>
+          <ul class="list-unstyled small mb-0">
+            <li><i class="fas fa-envelope me-1"></i> support@sikhmatrimony.com</li>
+            <li><i class="fas fa-phone me-1"></i> +91 98XXXXXXX</li>
+            <li><i class="fas fa-map-marker-alt me-1"></i> Delhi NCR, India</li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 text-center text-md-start">
+          <h6 class="fw-bold">Follow Us</h6>
+         

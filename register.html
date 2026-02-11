@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register - Sikh Matrimony</title>
+  
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --sikh-orange: #FF9800;
+      --sikh-white: #FFFFFF;
+    }
+    body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #f8f9fa 0%, #ffe0b2 100%); }
+    .bg-sikh-orange { background-color: var(--sikh-orange) !important; }
+    .text-orange { color: var(--sikh-orange) !important; }
+    .card { box-shadow: 0 20px 40px rgba(255,152,0,0.2); border: none; border-radius: 20px; }
+    .form-control:focus { border-color: var(--sikh-orange); box-shadow: 0 0 0 0.2rem rgba(255,152,0,0.25); }
+    .btn-primary { background-color: var(--sikh-orange); border-color: var(--sikh-orange); }
+    .btn-primary:hover { background-color: #e68900; border-color: #e68900; }
+  </style>
+</head>
+<body class="py-5">
+
+  <!-- Navbar (same as landing page) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-orange" href="index.html">
+        <i class="fas fa-gem me-1"></i> SIKH MATRIMONY
+      </a>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="login.html">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card p-4 p-md-5">
+          <div class="text-center mb-5">
+            <h1 class="fw-bold text-orange mb-3">Create Your Profile</h1>
+            <p class="lead text-muted">Join Sikh Matrimony – Safe & Community Driven</p>
+          </div>
+
+          <form id="registerForm" novalidate>
+            <!-- Personal Details Row 1 -->
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="fullName" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Date of Birth <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="dob" required>
+              </div>
+            </div>
+
+            <!-- Gender & Caste -->
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Gender <span class="text-danger">*</span></label>
+                <div class="d-flex gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+                    <label class="form-check-label fw-semibold" for="male">Male</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="Female" required>
+                    <label class="form-check-label fw-semibold" for="female">Female</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Caste</label>
+                <select class="form-select" id="caste">
+                  <option value="">Select Caste</option>
+                  <option value="Jat">Jat</option>
+                  <option value="Khatri">Khatri</option>
+                  <option value="Ramgarhia">Ramgarhia</option>
+                  <option value="Arora">Arora</option>
+                  <option value="Mazhabi">Mazhabi</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Subcaste & Height -->
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Subcaste</label>
+                <input type="text" class="form-control" id="subcaste">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Height</label>
+                <select class="form-select" id="height">
+                  <option value="">Select Height</option>
+                  <option>5'0"</option><option>5'1"</option><option>5'2"</option><option>5'3"</option>
+                  <option>5'4"</option><option>5'5"</option><option>5'6"</option><option>5'7"</option>
+                  <option>5'8"</option><option>5'9"</option><option>5'10"</option><option>6'0+"</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Education & Occupation -->
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Education</label>
+                <select class="form-select" id="education">
+                  <option value="">Select Education</option>
+                  <option>High School</option>
+                  <option>Bachelor's</option>
+                  <option>Master's</option>
+                  <option>PhD</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Occupation</label>
+                <input type="text" class="form-control" id="occupation">
+              </div>
+            </div>
+
+            <!-- Income & Location -->
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Annual Income</label>
+                <select class="form-select" id="income">
+                  <option value="">Select Income</option>
+                  <option>₹0 - 5L</option>
+                  <option>₹5L - 10L</option>
+                  <option>₹10L - 20L</option>
+                  <option>₹20L+</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">City <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="city" required>
+              </div>
+            </div>
+
+            <!-- State & About Me -->
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">State <span class="text-danger">*</span></label>
+                <select class="form-select" id="state" required>
+                  <option value="">Select State</option>
+                  <option>Punjab</option>
+                  <option>Delhi</option>
+                  <option>Haryana</option>
+                  <option>Uttar Pradesh</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">About Me</label>
+                <textarea class="form-control" id="about" rows="3" placeholder="Tell us about yourself..."></textarea>
+              </div>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Phone Number <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="phone" pattern="[0-9]{10}" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Password <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="password" minlength="6" required>
+                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Profile Photo -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Profile Photo</label>
+              <input type="file" class="form-control" id="photo" accept="image/*">
+              <div class="form-text">Upload a clear photo (Max 5MB)</div>
+            </div>
+
+            <!-- Submit -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg fw-bold">
+                <i class="fas fa-user-plus me-2"></i> Create Profile
+              </button>
+            </div>
+
+            <div class="text-center mt-4">
+              <p class="text-muted small">Already registered? <a href="login.html" class="text-orange fw-semibold">Login here</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Toggle password visibility
+    function togglePassword() {
+      const pwd = document.getElementById('password');
+      const icon = event.target.closest('button').querySelector('i');
+      if (pwd.type === 'password') {
+        pwd.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        pwd.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    // Form validation & submit (static demo - replace with API)
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (this.checkValidity()) {
+        alert('Profile created successfully! (Demo - Connect to your Registration API)');
+        // TODO: POST to /api/register with FormData
+      } else {
+        alert('Please fill all required fields.');
+      }
+    });
+  </script>
+</body>
+</html>

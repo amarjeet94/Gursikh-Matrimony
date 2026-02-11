@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search Profiles - Sikh Matrimony</title>
+  
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --sikh-orange: #FF9800;
+      --sikh-white: #FFFFFF;
+    }
+    body { font-family: 'Poppins', sans-serif; background: #f8f9fa; }
+    .bg-sikh-orange { background-color: var(--sikh-orange) !important; }
+    .text-orange { color: var(--sikh-orange) !important; }
+    .profile-card { 
+      border: none; 
+      border-radius: 15px; 
+      box-shadow: 0 10px 30px rgba(255,152,0,0.15);
+      transition: all 0.3s ease; 
+      height: 100%;
+    }
+    .profile-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 20px 40px rgba(255,152,0,0.25);
+    }
+    .profile-img { 
+      width: 80px; height: 80px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      border: 3px solid var(--sikh-orange);
+    }
+    .filter-section { background: rgba(255,152,0,0.05); border-radius: 15px; }
+    @media (max-width: 768px) { .filter-col { order: 2; } }
+  </style>
+</head>
+<body class="py-4">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-orange" href="index.html">
+        <i class="fas fa-gem me-1"></i> SIKH MATRIMONY
+      </a>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="register.html">Register</a>
+        <a class="nav-link" href="login.html">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5 pt-5">
+    <div class="row">
+      <!-- Page Header -->
+      <div class="col-12 text-center mb-5">
+        <h1 class="fw-bold text-orange mb-3"><i class="fas fa-search me-2"></i>Find Your Match</h1>
+        <p class="lead text-muted">Filter by age, location, education, caste & more</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="col-lg-3">
+        <div class="filter-section p-4 sticky-top" style="top: 100px;">
+          <h5 class="fw-bold mb-4 text-orange"><i class="fas fa-filter me-2"></i>Filters</h5>
+          
+          <!-- Age Range -->
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">Age Range</label>
+            <select class="form-select form-select-sm" id="ageFilter">
+              <option value="">All Ages</option>
+              <option value="20-25">20-25</option>
+              <option value="25-30">25-30</option>
+              <option value="30-35">30-35</option>
+              <option value="35+">35+</option>
+            </select>
+          </div>
+
+          <!-- Gender -->
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">Gender</label>
+            <select class="form-select form-select-sm" id="genderFilter">
+              <option value="">All</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <!-- City -->
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">City</label>
+            <select class="form-select form-select-sm" id="cityFilter">
+              <option value="">All Cities</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Amritsar">Amritsar</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Ludhiana">Ludhiana</option>
+              <option value="Jalandhar">Jalandhar</option>
+            </select>
+          </div>
+
+          <!-- Caste -->
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">Caste</label>
+            <select class="form-select form-select-sm" id="casteFilter">
+              <option value="">All Castes</option>
+              <option value="Jat">Jat</option>
+              <option value="Khatri">Khatri</option>
+              <option value="Ramgarhia">Ramgarhia</option>
+              <option value="Arora">Arora</option>
+            </select>
+          </div>
+
+          <!-- Education -->
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">Education</label>
+            <select class="form-select form-select-sm" id="educationFilter">
+              <option value="">All</option>
+              <option value="Bachelor's">Bachelor's</option>
+              <option value="Master's">Master's</option>
+              <option value="B.Tech">B.Tech</option>
+            </select>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="mb-4">
+            <label class="form-label fw-semibold small">Search Name</label>
+            <input type="text" class="form-control form-control-sm" id="nameSearch" placeholder="Type name...">
+          </div>
+
+          <!-- Clear Filters -->
+          <button class="btn btn-outline-orange w-100 py-2" onclick="clearFilters()">
+            <i class="fas fa-times me-1"></i> Clear All
+          </button>
+        </div>
+      </div>
+
+      <!-- Profiles Results -->
+      <div class="col-lg-9">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h5 class="mb-0 fw-bold"><i class="fas fa-users me-2 text-orange"></i>Profiles (<span id="resultsCount">12</span>)</h5>
+          <div class="form-select form-select-sm" style="width: 120px;">
+            <select id="sortFilter">
+              <option value="name">Sort by Name</option>
+              <option value="age">Sort by Age</option>
+              <option value="city">Sort by City</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row g-4" id="profilesContainer">
+          <!-- Profiles loaded by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Static Sikh Profiles Data (your exact fields)
+    const profiles = [
+      { id: 1, name: "Harpreet Kaur", age: 27, gender: "Female", city: "Delhi", state: "Delhi", caste: "Khatri", height: "5'4\"", education: "Master's", occupation: "Teacher", income: "₹5L-10L", about: "Pious family, seeking religious partner.", photo: "https://randomuser.me/api/portraits/women/32.jpg" },
+      { id: 2, name: "Gurpreet Singh", age: 29, gender: "Male", city: "Amritsar", state: "Punjab", caste: "Jat", height: "5'10\"", education: "B.Tech", occupation: "Engineer", income: "₹10L-20L", about: "Amritdhari, simple living.", photo: "https://randomuser.me/api/portraits/men/45.jpg" },
+      { id: 3, name: "Jaswinder Kaur", age: 25, gender: "Female", city: "Chandigarh", state: "Punjab", caste: "Ramgarhia", height: "5'3\"", education: "Bachelor's", occupation: "Nurse", income: "₹5L-10L", about: "Seva-oriented family.", photo: "https://randomuser.me/api/portraits/women/68.jpg" },
+      { id: 4, name: "Manpreet Singh", age: 32, gender: "Male", city: "Delhi", state: "Delhi", caste: "Arora", height: "5'8\"", education: "MBA", occupation: "Manager", income: "₹20L+", about: "Business family background.", photo: "https://randomuser.me/api/portraits/men/23.jpg" },
+      { id: 5, name: "Simran Kaur", age: 24, gender: "Female", city: "Ludhiana", state: "Punjab", caste: "Jat", height: "5'5\"", education: "B.Pharm", occupation: "Pharmacist", income: "₹5L-10L", about: "Looking for compatible match.", photo: "https://randomuser.me/api/portraits/women/44.jpg" },
+      { id: 6, name: "Amarjit Singh", age: 31, gender: "Male", city: "Jalandhar", state: "Punjab", caste: "Khatri", height: "5'9\"", education: "B.Tech", occupation: "Software Dev", income: "₹10L-20L", about: "IT professional, Gurmukhi reader.", photo: "https://randomuser.me/api/portraits/men/67.jpg" },
+      { id: 7, name: "Navjot Kaur", age: 26, gender: "Female", city: "Amritsar", state: "Punjab", caste: "Ramgarhia", height: "5'2\"", education: "Bachelor's", occupation: "Banker", income: "₹5L-10L", about: "Simple and religious family.", photo: "https://randomuser.me/api/portraits/women/19.jpg" },
+      { id: 8, name: "Ranjit Singh", age: 28, gender: "Male", city: "Delhi", state: "Delhi", caste: "Jat", height: "6'0\"", education: "Master's", occupation: "Doctor", income: "₹20L+", about: "Medical professional.", photo: "https://randomuser.me/api/portraits/men/12.jpg" },
+      { id: 9, name: "Kiran Kaur", age: 23, gender: "Female", city: "Chandigarh", state: "Punjab", caste: "Arora", height: "5'6\"", education: "B.Com", occupation: "Accountant", income: "₹0-5L", about: "Young professional family.", photo: "https://randomuser.me/api/portraits/women/55.jpg" },
+      { id: 10, name: "Baljit Singh", age: 34, gender: "Male", city: "Ludhiana", state: "Punjab", caste: "Ramgarhia", height: "5'7\"", education: "Diploma", occupation: "Business", income: "₹10L-20L", about: "Entrepreneur, family man.", photo: "https://randomuser.me/api/portraits/men/78.jpg" },
+      { id: 11, name: "Pooja Kaur", age: 29, gender: "Female", city: "Delhi", state: "Delhi", caste: "Khatri", height: "5'4\"", education: "MCA", occupation: "IT Analyst", income: "₹10L-20L", about: "Tech-savvy, religious.", photo: "https://randomuser.me/api/portraits/women/73.jpg" },
+      { id: 12, name: "Harjinder Singh", age: 30, gender: "Male", city: "Jalandhar", state: "Punjab", caste: "Jat", height: "5'11\"", education: "B.Tech", occupation: "Civil Engineer", income: "₹10L-20L", about: "Construction professional.", photo: "https://randomuser.me/api/portraits/men/34.jpg" }
+    ];
+
+    let filteredProfiles = [...profiles];
+
+    // Filter function
+    function applyFilters() {
+      const ageFilter = document.getElementById('ageFilter').value;
+      const genderFilter = document.getElementById('genderFilter').value;
+      const cityFilter = document.getElementById('cityFilter').value;
+      const casteFilter = document.getElementById('casteFilter').value;
+      const educationFilter = document.getElementById('educationFilter').value;
+      const nameSearch = document.getElementById('nameSearch').value.toLowerCase();
+
+      filteredProfiles = profiles.filter(profile => {
+        // Name search
+        if (nameSearch && !profile.name.toLowerCase().includes(nameSearch)) return false;
+        
+        // Age filter
+        if (ageFilter) {
+          const age = parseInt(profile.age);
+          if (ageFilter === '20-25' && (age < 20 || age > 25)) return false;
+          if (ageFilter === '25-30' && (age < 25 || age > 30)) return false;
+          if (ageFilter === '30-35' && (age < 30 || age > 35)) return false;
+          if (ageFilter === '35+' && age < 35) return false;
+        }
+
+        // Gender
+        if (genderFilter && profile.gender !== genderFilter) return false;
+
+        // City
+        if (cityFilter && profile.city !== cityFilter) return false;
+
+        // Caste
+        if (casteFilter && profile.caste !== casteFilter) return false;
+
+        // Education
+        if (educationFilter && profile.education !== educationFilter) return false;
+
+        return true;
+      });
+
+      renderProfiles();
+      document.getElementById('resultsCount').textContent = filteredProfiles.length;
+    }
+
+    // Render profiles
+    function renderProfiles() {
+      const container = document.getElementById('profilesContainer');
+      container.innerHTML = '';
+
+      filteredProfiles.forEach(profile => {
+        const profileCard = `
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="card profile-card h-100">
+              <div class="card-body p-4 text-center">
+                <img src="${profile.photo}" class="profile-img mx-auto mb-3" alt="${profile.name}">
+                <h6 class="fw-bold mb-2">${profile.name}</h6>
+                <p class="text-muted small mb-1">${profile.age} • ${profile.city}</p>
+                <p class="text-muted small mb-2">${profile.education} • ${profile.occupation}</p>
+                <p class="small text-dark mb-3">${profile.about}</p>
+                <div class="d-flex gap-2 justify-content-center">
+                  <a href="profile-detail.html?id=${profile.id}" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-eye me-1"></i> View Profile
+                  </a>
+                  <button class="btn btn-outline-success btn-sm" onclick="requestContact(${profile.id})">
+                    <i class="fas fa-handshake me-1"></i> Request Contact
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        container.innerHTML += profileCard;
+      });
+    }
+
+    // Sort profiles
+    document.getElementById('sortFilter').addEventListener('change', function() {
+      const sortBy = this.value;
+      filteredProfiles.sort((a, b) => {
+        if (sortBy === 'age') return a.age - b.age;
+        if (sortBy === 'city') return a.city.localeCompare(b.city);
+        return a.name.localeCompare(b.name);
+      });
+      renderProfiles();
+    });
+
+    // Event listeners for filters
+    ['ageFilter', 'genderFilter', 'cityFilter', 'casteFilter', 'educationFilter'].forEach(id => {
+      document.getElementById(id).addEventListener('change', applyFilters);
+    });
+    document.getElementById('nameSearch').addEventListener('input', applyFilters);
+
+    // Clear filters
+    function clearFilters() {
+      document.getElementById('ageFilter').value = '';
+      document.getElementById('genderFilter').value = '';
+      document.getElementById('cityFilter').value = '';
+      document.getElementById('casteFilter').value = '';
+      document.getElementById('educationFilter').value = '';
+      document.getElementById('nameSearch').value = '';
+      document.getElementById('sortFilter').value = 'name';
+      applyFilters();
+    }
+
+    // Demo contact request
+    function requestContact(profileId) {
+      alert(`Contact request sent to profile #${profileId}! (Pending Admin Approval)`);
+    }
+
+    // Initial load
+    renderProfiles();
+  </script>
+</body>
+</html>
